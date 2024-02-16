@@ -1,0 +1,21 @@
+{% extends "learning_logs/base.html" %}
+
+{% block header %}
+    <div class='jumbotron'>
+        <h1>Registre sua Jornada com o <strong>Aprenda.me</strong></h1>
+    </div>
+{% endblock header %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h2>
+            Bem vindo ao <strong>aprenda.me</strong>! Sempre que você aprender algo novo, 
+            <a href="{% url 'learning_logs:topics' %}">faça uma anotação</a> resumindo o que aprendeu.
+        </h2>
+    {% else %}
+        <h2>
+            <a href="{% url 'users:register' %}">Registre uma conta</a> no <strong>aprenda.me</strong> para criar 
+            seu próprio registro de aprendizagem e listar todo o seu progresso.
+        </h2>
+    {% endif %}
+{% endblock content %}
